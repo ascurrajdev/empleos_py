@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBeneficiosPostsTable extends Migration
+class CreateImagenesPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBeneficiosPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('beneficios_posts', function (Blueprint $table) {
+        Schema::create('imagenes_posts', function (Blueprint $table) {
             $table->id();
-            $table->text("beneficio");
+            $table->text("url_imagen");
             $table->foreignId("post_id");
             $table->softDeletes();
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateBeneficiosPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beneficios_posts');
+        Schema::dropIfExists('imagenes_posts');
     }
 }

@@ -10,4 +10,9 @@ class Postulacion extends Model
     use HasFactory;
 
     protected $table = "postulaciones";
+
+    protected $fillable = [
+        "user_id","post_id"
+    ];
+    
 }

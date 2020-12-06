@@ -15,6 +15,8 @@ class CreateRequisitosPostsTable extends Migration
     {
         Schema::create('requisitos_posts', function (Blueprint $table) {
             $table->id();
+            $table->text("requisito");
+            $table->foreignId("post_id");
             $table->timestamps();
         });
     }

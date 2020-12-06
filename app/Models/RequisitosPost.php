@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RequisitosPost extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "requisito","post_id"
+    ];
 }

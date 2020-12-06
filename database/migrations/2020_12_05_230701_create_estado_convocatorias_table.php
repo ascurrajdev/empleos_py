@@ -15,6 +15,7 @@ class CreateEstadoConvocatoriasTable extends Migration
     {
         Schema::create('estado_convocatorias', function (Blueprint $table) {
             $table->id();
+            $table->string("estado");
             $table->timestamps();
         });
     }
