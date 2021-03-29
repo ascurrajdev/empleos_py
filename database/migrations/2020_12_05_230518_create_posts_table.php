@@ -15,8 +15,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("categoria_id");
-            $table->foreignId("user_id");
+            $table->foreignId("categoria_id")->comment('Asociamos a la categoria de empleo');
+            $table->foreignId("user_id")->comment('Asociamos al usuario que publico');
             $table->string("titulo");
             $table->text("descripcion");
             $table->foreignId("estado_convocatoria_id")->default(1);

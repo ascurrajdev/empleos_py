@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -16,6 +17,6 @@ class LoginController extends Controller
         $user = Socialite::driver($provider)->user();
         $user = User::firstWhere("email",$user->getEmail());
         Auth::login($user);
-
+        return redirect(route("home"));
     }
 }

@@ -27,7 +27,14 @@ class AuthViewsTest extends TestCase
      */
     public function loginForm(){
         $response = $this->get('/login');
-        $response
-                ->assertStatus(200);
+        $response->assertStatus(200);
+    }
+
+    /**
+     * @test
+     */
+    public function loginFormFacebook(){
+        $response = $this->get('/login/facebook');
+        $response->assertStatus(302);
     }
 }

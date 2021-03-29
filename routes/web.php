@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/login/{provider}','LoginController@redirectToProvider');
 Route::get('/login/{provider}/callback','LoginController@handleCallback');
 Auth::routes();
+Route::get('/home',"HomeController@index")->name("home");
+Route::prefix('publicaciones')->name('posts.')->group(function(){
+    Route::get('','PostsController@index')->name('index');    
+});
