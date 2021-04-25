@@ -43,6 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function postulaciones(){
+        return $this->hasMany(Post::class,'user_id');
+    }
+
+    public function publicaciones(){
+        return $this->hasMany(Postulacion::class,'user_id');
+    }
+
     public function adminlte_image(){
         return "https://ui-avatars.com/api/?rounded=true&name={$this->name}";
     }

@@ -8,21 +8,20 @@ use App\Models\User;
 use Tests\TestCase;
 use Hash;
 
-class PostulacionesUserTest extends TestCase
+class MensajesUserTest extends TestCase
 {
     /**
      * @test
      */
-    public function obtenerVistaDePostulacionesEmpleosDelUsuarioSinAutorizacion()
-    {
-        $response = $this->get('cuenta/postulaciones');
+    public function obtenerVistaMensajesUsuariosSinAutorizacion(){
+        $response = $this->get('/cuenta/mensajes');
         $response->assertStatus(302);
     }
 
     /**
      * @test
      */
-    public function obtenerVistaPostulacionesEmpleosDelUsuario(){
+    public function obtenerVistaMensajesUsuariosConAutorizacion(){
         $user = User::factory()->make([
             'name' => 'Jose Ascurra',
             'email' => 'joseascurra123@gmail.com',
@@ -30,7 +29,7 @@ class PostulacionesUserTest extends TestCase
             'role_id' => 1
         ]);
         $response = $this->actingAs($user)
-                        ->get('cuenta/postulaciones');
+                        ->get('/cuenta/mensajes');
         $response->assertStatus(200);
     }
 }

@@ -234,6 +234,11 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        [
+            'text' => 'Publicaciones',
+            'route' => 'posts.index',
+            'icon' => 'fas fa-fw fa-clipboard-list'
+        ],
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin/pages',
@@ -241,26 +246,53 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        // ['header' => 'Cuenta'],
+        [
+            'text' => 'Iniciar sesion',
+            'route' => 'login',
+            'topnav_right' => 'true',
+            'icon' => 'fas fa-fw fa-sign-in-alt',
+            'can' => 'cuenta-invitada'
+        ],
+        [
+            'text' => 'Publica una oferta',
+            'route' => 'posts.create',
+            'topnav_right' => true,
+            'classes' => 'bg-warning',
+            'icon' => 'fa fa-fw fa-plus'
+        ],
+        [
+            'header' => 'Cuenta',
+            'can' => 'cuenta-disponible'
+        ],
+        [
+            'text' => 'Dashboard',
+            'route' => 'home', 
+            'icon' => 'fas fa-fw fa-chart-line',
+            'can' => 'cuenta-disponible'
+        ],
         [
             'text' => 'Perfil',
-            'url'  => 'cuenta/configuracion',
+            'route' => 'users.cuenta.configuracion',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'cuenta-settings',
         ],
         [
             'text' => 'Mis Postulaciones',
-            'url' => 'cuenta/postulaciones',
-            'icon' => 'fas fa-fw fa-inbox'
+            'route' => 'users.postulaciones.index',
+            'icon' => 'fas fa-fw fa-inbox',
+            'can' => 'cuenta-postulaciones'
         ],
         [
             'text' => 'Mis publicaciones',
-            'url' => 'cuenta/publicaciones',
-            'icon' => 'far fa-fw fa-paper-plane'
+            'route' => 'users.posts.index',
+            'icon' => 'far fa-fw fa-paper-plane',
+            'can' => 'cuenta-publicaciones',
         ],
         [
             'text' => 'Mensajes',
-            'url' => 'cuenta/mensajes',
-            'icon' => 'far fa-fw fa-comment'
+            'route' => 'users.mensajes.index',
+            'icon' => 'far fa-fw fa-comment',
+            'can' => 'cuenta-disponible',
         ]
         // [
         //     'text' => 'change_password',

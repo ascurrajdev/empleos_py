@@ -11,6 +11,11 @@ class Post extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        "categoria_id","user_id","titulo","descripcion","estado_convocatoria_id","activo"
+        "categoria_id",
+        "user_id",
+        "titulo",
+        "descripcion",
+        "estado_convocatoria_id",
+        "activo"
     ];
 }
