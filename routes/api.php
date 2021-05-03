@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Broadcast;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Broadcast::routes(['middleware' => ['auth:sanctum']]);
 Route::post('/login','Auth\LoginController@handleLoginSanctum');
 Route::post('/register','Auth\RegisterController@handleRegisterSanctum');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -52,7 +52,6 @@ class LoginController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
-
     public function handleCallbackProvider($provider){
         $user = Socialite::driver($provider)->stateless()->user();
         $user = User::firstWhere("email",$user->getEmail());
