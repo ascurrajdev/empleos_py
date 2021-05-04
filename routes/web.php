@@ -30,7 +30,7 @@ Route::prefix('publicaciones')->name('posts.')->group(function(){
 });
 Route::prefix('cuenta')->middleware('auth')->name('users.')->group(function(){
     Route::prefix('publicaciones')->name('posts.')->group(function(){
-        Route::get('',[PostsCuentaController::class,'index'])->name('index');    
+        Route::get('',[PostsCuentaController::class,'index'])->name('index');
     });
     Route::get('configuracion',[CuentaController::class,'showConfiguracionCuenta'])->name('cuenta.configuracion');
     Route::prefix('postulaciones')->name('postulaciones.')->group(function(){

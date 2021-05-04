@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header">Publicar una oferta:</div>
         <div class="card-body">
-            <form action="{{route('')}}" method="POST">
+            <form action="{{route('posts.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Titulo:</label>
@@ -19,7 +19,7 @@
                         <option value="1">Categoria 1</option>
                     </select>
                 </div>
-                <button class="btn btn-lg btn-success btn-block"><i class="far fa-save"></i> PUBLICAR</button>
+                <button class="btn btn-lg btn-success btn-block"><i class="fas fa-check"></i> PUBLICAR</button>
             </form>
         </div>
     </div>

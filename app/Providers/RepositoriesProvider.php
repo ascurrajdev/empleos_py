@@ -7,6 +7,7 @@ use App\Repositories\User\{UserRepository, UserRepositoryImp};
 use App\Repositories\AuthProviders\{AuthProviderRepository, AuthProviderRepositoryImp};
 use App\Repositories\AuthProviderUsers\{AuthProviderUserRepository, AuthProviderUserRepositoryImp};
 use App\Repositories\Posts\{PostsRepository,PostsRepositoryImp};
+use App\Repositories\CategoriaPost\{CategoriaPostRepository,CategoriaPostRepositoryImp};
 class RepositoriesProvider extends ServiceProvider
 {
     /**
@@ -31,6 +32,10 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->bind(
             PostsRepository::class,
             PostsRepositoryImp::class
+        );
+        $this->app->bind(
+            CategoriaPostRepository::class,
+            CategoriaPostRepositoryImp::class
         );
     }
 
