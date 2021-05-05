@@ -2,6 +2,7 @@
 namespace App\Repositories\CategoriaPost;
 
 use App\Models\CategoriaPost;
+use Illuminate\Database\Eloquent\Collection;
 
 class CategoriaPostRepositoryImp implements CategoriaPostRepository{
 
@@ -11,4 +12,7 @@ class CategoriaPostRepositoryImp implements CategoriaPostRepository{
         ]);
     }
 
+    public function getAll() : Collection{
+        return CategoriaPost::get(["categoria","id"]);
+    }
 }

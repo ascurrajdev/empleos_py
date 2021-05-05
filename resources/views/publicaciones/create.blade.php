@@ -16,7 +16,9 @@
                 <div class="form-group">
                     <label for="categoria">Categoria:</label>
                     <select name="categoria_id" class="form-control" id="categoria">
-                        <option value="1">Categoria 1</option>
+                        @foreach($categorias as $categoria)
+                            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <button class="btn btn-lg btn-success btn-block"><i class="fas fa-check"></i> PUBLICAR</button>

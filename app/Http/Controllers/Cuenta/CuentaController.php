@@ -13,7 +13,6 @@ class CuentaController extends Controller
     }
 
     public function showConfiguracionCuenta(){
-        event(new UserLogin(auth()->user()));
         return view('cuenta.configuracion');
     }
 }

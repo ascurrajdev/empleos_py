@@ -33,4 +33,5 @@ class PostulacionesUserTest extends TestCase
                         ->get('cuenta/postulaciones');
         $response->assertStatus(200);
     }
+
 }

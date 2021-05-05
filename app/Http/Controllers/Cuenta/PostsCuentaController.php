@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class PostsCuentaController extends Controller
 {
     public function index(){
-        return view('publicaciones.index');
+        return view('publicaciones.cuenta.index');
     }
 }

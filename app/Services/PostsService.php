@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Repositories\Posts\PostsRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class PostsService{
     private $postsRepository;
@@ -11,6 +12,10 @@ class PostsService{
     }
 
     public function save(array $parameters){
-        
+        $this->postsRepository->save($parameters);
+    }
+
+    public function getAll() : Collection{
+        return $this->postsRepository->getAll();
     }
 }
