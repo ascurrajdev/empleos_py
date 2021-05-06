@@ -29,6 +29,7 @@ class PostsController extends Controller{
             "categoria_id" => ["required","exists:categorias,id"],
             "titulo" => ["required","string","min:8","max:255"],
             "descripcion" => ["required","string","min:8","max:65535"],
+            "beneficio" => ["string","max:65535"],
         ]);
         $this->postsService->save([
             "categoria_id" => $request->categoria_id,
@@ -36,7 +37,8 @@ class PostsController extends Controller{
             "titulo" => $request->titulo,
             "descripcion" => $request->descripcion,
             "estado_convocatoria_id" => 1,
-            "activo" => 1
+            "activo" => 1,
+            "beneficio" => $request->beneficio
         ]);
 
         return redirect()->route("posts.index");

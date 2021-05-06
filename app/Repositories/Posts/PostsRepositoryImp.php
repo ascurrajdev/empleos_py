@@ -4,7 +4,7 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
 
 class PostsRepositoryImp implements PostsRepository{
-    public function save(array $parameters):void{
+    public function save(array $parameters):Collection{
         Post::create([
             "categoria_id" => $parameters["categoria_id"],
             "user_id" => $parameters["user_id"],
