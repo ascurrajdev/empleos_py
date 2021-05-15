@@ -10,7 +10,7 @@ use App\Repositories\Posts\{PostsRepository,PostsRepositoryImp};
 use App\Repositories\CategoriaPost\{CategoriaPostRepository,CategoriaPostRepositoryImp};
 use App\Repositories\BeneficiosPost\{BeneficioPostRepository,BeneficioPostRepositoryImp};
 use App\Repositories\RequisitosPost\{RequisitosPostRepository,RequisitosPostRepositoryImp};
-
+use App\Repositories\Postulaciones\{PostulacionesRepository,PostulacionesRepositoryImp};
 class RepositoriesProvider extends ServiceProvider
 {
     /**
@@ -47,6 +47,10 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->bind(
             RequisitosPostRepository::class,
             RequisitosPostRepositoryImp::class
+        );
+        $this->app->bind(
+            PostulacionesRepository::class,
+            PostulacionesRepositoryImp::class
         );
     }
 

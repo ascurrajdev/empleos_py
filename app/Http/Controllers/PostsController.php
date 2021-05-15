@@ -51,4 +51,14 @@ class PostsController extends Controller{
         $post->load(['user','beneficios','requisitos','categoria']);
         return view("publicaciones.show",compact('post'));
     }
+
+    public function postularUserToPost($post){
+        $this->postsService->postular([
+            "post_id" => $post,
+            "user_id" => auth()->id()
+        ]);
+        return redirect()->route('posts.show',$post)->with([
+            "postulacionSuccess" => "La postulacion fue realizada correctamente"
+        ]);
+    }
 }

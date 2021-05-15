@@ -1,5 +1,8 @@
 @extends('adminlte::page')
 @section('content')
+    @if(session('postulacionSuccess'))
+        <div class="alert alert-success"><i class="fas fa-user-check"></i> {{session('postulacionSuccess')}}</div>
+    @endif
     <div class="card">
         <div class="card-header">
             <div class="float-left">
@@ -20,8 +23,11 @@
             <p class="font-italic">{{$post->beneficios->beneficio}}</p>
         </div>
         <div class="card-footer">
-            <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
-            <button class="btn btn-info">Volver <i class="fas fa-undo"></i></button>
+            <form action="{{route('posts.postular',$post->id)}}" class="float-left mr-3" method="POST">
+                @csrf
+                <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
+            </form>
+            <a href="{{route('posts.index')}}" class="float-left btn btn-info">Volver <i class="fas fa-undo"></i></a>
         </div>
     </div>
 @endsection

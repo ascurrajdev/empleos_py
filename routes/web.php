@@ -28,6 +28,7 @@ Route::prefix('publicaciones')->name('posts.')->group(function(){
     Route::get('',[PostsController::class,'index'])->name('index');
     Route::get('create',[PostsController::class,'create'])->name('create')->middleware('auth');
     Route::get('{post}',[PostsController::class,'show'])->name('show');
+    Route::post('{post}/postular',[PostsController::class,'postularUserToPost'])->name('postular');
 });
 Route::prefix('cuenta')->middleware('auth')->name('users.')->group(function(){
     Route::prefix('publicaciones')->name('posts.')->group(function(){
