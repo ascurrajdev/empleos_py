@@ -14,6 +14,14 @@
                     <textarea name="descripcion" id="descripcion" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="requisitos">Requisitos:</label>
+                    <textarea name="requisito" id="requisitos" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="beneficios">Beneficios:</label>
+                    <textarea name="beneficio" id="beneficios" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="categoria">Categoria:</label>
                     <select name="categoria_id" class="form-control" id="categoria">
                         @foreach($categorias as $categoria)

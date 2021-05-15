@@ -24,9 +24,10 @@ Auth::routes();
 Route::get('/auth/{provider}/callback','Auth\AuthSocialiteController@handleRedirect');
 Route::get('/home',"HomeController@index")->name("home")->middleware('auth');
 Route::prefix('publicaciones')->name('posts.')->group(function(){
-    Route::post('',[PostsController::class,'store'])->name('store');
+    Route::post('',[PostsController::class,'store'])->name('store')->middleware('auth');
     Route::get('',[PostsController::class,'index'])->name('index');
     Route::get('create',[PostsController::class,'create'])->name('create')->middleware('auth');
+    Route::get('{post}',[PostsController::class,'show'])->name('show');
 });
 Route::prefix('cuenta')->middleware('auth')->name('users.')->group(function(){
     Route::prefix('publicaciones')->name('posts.')->group(function(){

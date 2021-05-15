@@ -9,6 +9,7 @@ use App\Repositories\AuthProviderUsers\{AuthProviderUserRepository, AuthProvider
 use App\Repositories\Posts\{PostsRepository,PostsRepositoryImp};
 use App\Repositories\CategoriaPost\{CategoriaPostRepository,CategoriaPostRepositoryImp};
 use App\Repositories\BeneficiosPost\{BeneficioPostRepository,BeneficioPostRepositoryImp};
+use App\Repositories\RequisitosPost\{RequisitosPostRepository,RequisitosPostRepositoryImp};
 
 class RepositoriesProvider extends ServiceProvider
 {
@@ -20,8 +21,8 @@ class RepositoriesProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-                UserRepository::class,
-                UserRepositoryImp::class
+            UserRepository::class,
+            UserRepositoryImp::class
         );
         $this->app->bind(
             AuthProviderUserRepository::class,
@@ -42,6 +43,10 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->bind(
             BeneficioPostRepository::class,
             BeneficioPostRepositoryImp::class
+        );
+        $this->app->bind(
+            RequisitosPostRepository::class,
+            RequisitosPostRepositoryImp::class
         );
     }
 

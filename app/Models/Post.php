@@ -16,6 +16,11 @@ class Post extends Model
         "titulo",
         "descripcion",
         "estado_convocatoria_id",
-        "activo"
+        "activo",
+        "icon"
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

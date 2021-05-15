@@ -1,9 +1,10 @@
 <?php
 namespace App\Repositories\Posts;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Model;
 
 interface PostsRepository{
-    public function save(array $parameters):Collection;
-    public function getAll():Collection;
+    public function save(array $parameters):Model;
+    public function getAll():Paginator;
 }

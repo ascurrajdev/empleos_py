@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\{PostsService,CategoriaPostService};
+use App\Models\Post;
 use Validator;
 
 class PostsController extends Controller{
@@ -30,6 +31,7 @@ class PostsController extends Controller{
             "titulo" => ["required","string","min:8","max:255"],
             "descripcion" => ["required","string","min:8","max:65535"],
             "beneficio" => ["string","max:65535"],
+            "requisito" => ["string","max:65535"]
         ]);
         $this->postsService->save([
             "categoria_id" => $request->categoria_id,
@@ -38,9 +40,14 @@ class PostsController extends Controller{
             "descripcion" => $request->descripcion,
             "estado_convocatoria_id" => 1,
             "activo" => 1,
-            "beneficio" => $request->beneficio
+            "beneficio" => $request->beneficio,
+            "requisito" => $request->requisito
         ]);
 
         return redirect()->route("posts.index");
+    }
+
+    public function show(Post $post){
+        return view("publicaciones.show");
     }
 }
