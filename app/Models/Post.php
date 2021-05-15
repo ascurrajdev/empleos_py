@@ -23,4 +23,16 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function requisitos(){
+        return $this->hasOne('App\Models\RequisitosPost');
+    }
+
+    public function beneficios(){
+        return $this->hasOne('App\Models\BeneficiosPost');
+    }
+
+    public function categoria(){
+        return $this->belongsTo('App\Models\CategoriaPost','categoria_id');
+    }
 }

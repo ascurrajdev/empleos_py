@@ -48,6 +48,7 @@ class PostsController extends Controller{
     }
 
     public function show(Post $post){
-        return view("publicaciones.show");
+        $post->load(['user','beneficios','requisitos','categoria']);
+        return view("publicaciones.show",compact('post'));
     }
 }
