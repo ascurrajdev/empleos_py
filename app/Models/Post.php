@@ -35,4 +35,8 @@ class Post extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\CategoriaPost','categoria_id');
     }
+
+    public function postulaciones(){
+        return $this->hasMany('App\Models\Postulacion');
+    }
 }

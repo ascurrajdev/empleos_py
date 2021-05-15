@@ -10,7 +10,7 @@
                 {{$post->user->name}}
             </div>
             <div class="float-right text-muted">
-            <i class="fas fa-history"></i> {{$post->created_at->diffForHumans()}}
+                <i class="fas fa-history"></i> {{$post->created_at->diffForHumans()}}
             </div>
         </div>
         <div class="card-body">
@@ -23,10 +23,12 @@
             <p class="font-italic">{{$post->beneficios->beneficio}}</p>
         </div>
         <div class="card-footer">
-            <form action="{{route('posts.postular',$post->id)}}" class="float-left mr-3" method="POST">
-                @csrf
-                <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
-            </form>
+            @if($post->postulado)
+                <form action="{{route('posts.postular',$post->id)}}" class="float-left mr-3" method="POST">
+                    @csrf
+                    <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
+                </form>
+            @endif
             <a href="{{route('posts.index')}}" class="float-left btn btn-info">Volver <i class="fas fa-undo"></i></a>
         </div>
     </div>
