@@ -34,4 +34,27 @@ class PostsTest extends TestCase
         $response->assertStatus(200)
                 ->assertViewIs('publicaciones.create');
     }
+
+    /**
+     * @test
+     */
+    public function obtenerVistaPublicaciones(){
+        $response = $this->get('publicaciones');
+        $response->assertStatus(200);
+    }
+
+    /**
+     * @test
+     */
+    public function obtenerUsuarioNoAutorizadoStorePublicacion(){
+        $response = $this->json('POST','publicaciones',[
+            'categoria_id' => 1,
+            'titulo' => "Hola",
+            'descripcion' => "Hola",
+            'beneficio' => "Hola",
+            'requisitos' => "Hola"
+        ]);
+        $response->assertStatus(401);
+    }
+
 }

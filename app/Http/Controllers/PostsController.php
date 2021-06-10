@@ -14,6 +14,7 @@ class PostsController extends Controller{
     public function __construct(){
         $this->postsService = resolve(PostsService::class);
         $this->categoriaPostService = resolve(CategoriaPostService::class);
+        $this->middleware('auth')->only(['postularUserToPost','store','create']);
     }
     
     public function index(){

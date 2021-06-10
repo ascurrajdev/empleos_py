@@ -23,7 +23,7 @@
             <p class="font-italic">{{$post->beneficios->beneficio}}</p>
         </div>
         <div class="card-footer">
-            @if($post->postulado)
+            @if($post->postulado || !auth()->check())
                 <form action="{{route('posts.postular',$post->id)}}" class="float-left mr-3" method="POST">
                     @csrf
                     <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
