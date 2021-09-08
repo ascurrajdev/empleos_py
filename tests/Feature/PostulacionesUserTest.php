@@ -24,12 +24,7 @@ class PostulacionesUserTest extends TestCase
      * @test
      */
     public function obtenerVistaPostulacionesEmpleosDelUsuario(){
-        $user = User::factory()->make([
-            'name' => 'Jose Ascurra',
-            'email' => 'joseascurra123@gmail.com',
-            'password' => Hash::make(strval(rand())),
-            'role_id' => 1
-        ]);
+        $user = User::factory()->make();
         $response = $this->actingAs($user)
                         ->get('cuenta/postulaciones');
         $response->assertStatus(200);

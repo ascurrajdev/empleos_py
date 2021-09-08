@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\Posts;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -19,5 +20,14 @@ class PostsRepositoryImp implements PostsRepository{
 
     public function getAll() : Paginator{
         return Post::with('user')->simplePaginate(10);
+    }
+
+    public function getAllFromUser($user):Collection{
+        if($user instanceof User){
+            $user->load('publicaciones');
+        }else{
+            $user = User::find($user)->with('publicaciones');
+        }
+        return $user->publicaciones;
     }
 }

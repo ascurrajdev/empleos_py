@@ -23,12 +23,7 @@ class MensajesUserTest extends TestCase
      * @test
      */
     public function obtenerVistaMensajesUsuariosConAutorizacion(){
-        $user = User::factory()->make([
-            'name' => 'Jose Ascurra',
-            'email' => 'joseascurra123@gmail.com',
-            'password' => Hash::make(strval(rand())),
-            'role_id' => 1
-        ]);
+        $user = User::factory()->make();
         $response = $this->actingAs($user)
                         ->get('/cuenta/mensajes');
         $response->assertStatus(200);
