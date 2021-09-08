@@ -10,6 +10,7 @@ use Hash;
 
 class CuentaViewsTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * @test
      */
@@ -23,12 +24,7 @@ class CuentaViewsTest extends TestCase
      * @test
      */
     public function obtenerVistaDeConfiguracionCuentaConAutorizacion(){
-        $user = User::factory()->make([
-            'name' => 'Jose Ascurra',
-            'email' => 'joseascurra123@gmail.com',
-            'password' => Hash::make(strval(rand())),
-            'role_id' => 1
-        ]);
+        $user = User::factory()->make();
         $response = $this->actingAs($user)
                         ->get('cuenta/configuracion');
         $response->assertStatus(200);

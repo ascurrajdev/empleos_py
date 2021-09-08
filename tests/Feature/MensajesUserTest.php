@@ -10,6 +10,7 @@ use Hash;
 
 class MensajesUserTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * @test
      */

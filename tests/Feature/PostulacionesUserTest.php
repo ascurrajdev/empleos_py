@@ -10,6 +10,7 @@ use Hash;
 
 class PostulacionesUserTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * @test
      */

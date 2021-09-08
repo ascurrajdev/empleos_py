@@ -28,12 +28,12 @@ class PostsController extends Controller{
     }
 
     public function store(Request $request){
-        Validator::make($request->all(),[
-            "categoria_id" => ["required","exists:categorias,id"],
-            "titulo" => ["required","string","min:8","max:255"],
-            "descripcion" => ["required","string","min:8","max:65535"],
-            "beneficio" => ["string","max:65535"],
-            "requisito" => ["string","max:65535"]
+        $request->validate([
+            "categoria_id" => "required|exists:categorias,id",
+            "titulo" => "required|string|min:8|max:255",
+            "descripcion" => "required|string|min:8|max:65535",
+            "beneficio" => "string|max:65535",
+            "requisito" => "string|max:65535"
         ]);
         $this->postsService->save([
             "categoria_id" => $request->categoria_id,
@@ -57,7 +57,10 @@ class PostsController extends Controller{
         return view("publicaciones.show",compact('post'));
     }
 
-    public function postularUserToPost($post){
+    public function postularUserToPost(Post $post){
+        if(empty($post)){
+            abort(404);
+        }
         $this->postsService->postular([
             "post_id" => $post,
             "user_id" => auth()->id()

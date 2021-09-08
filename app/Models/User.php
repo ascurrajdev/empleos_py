@@ -44,11 +44,11 @@ class User extends Authenticatable
     ];
 
     public function postulaciones(){
-        return $this->hasMany(Post::class,'user_id');
+        return $this->belongsToMany(Post::class,'postulaciones');
     }
 
     public function publicaciones(){
-        return $this->hasMany(Postulacion::class,'user_id');
+        return $this->hasMany(Post::class,'user_id');
     }
 
     public function adminlte_image(){

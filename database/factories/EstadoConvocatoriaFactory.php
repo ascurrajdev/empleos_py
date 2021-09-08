@@ -22,7 +22,7 @@ class EstadoConvocatoriaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'estado' => 'proceso'
         ];
     }
 }

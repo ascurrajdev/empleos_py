@@ -22,7 +22,7 @@ class CategoriaPostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'categoria' => 'Desarrollo WEB'
         ];
     }
 }
