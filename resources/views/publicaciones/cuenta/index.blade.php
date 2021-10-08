@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 @section('content')
+    @if($posts->count() < 1)
+        <x-adminlte-alert theme="info" class="mt-3" title="Info">
+            Usted no ha realizado publicaciones.
+        </x-adminlte-alert>
+    @endif
     @foreach($posts as $post)
         <div class="card">
             <div class="card-header">
@@ -12,7 +17,7 @@
                 </div>
             </div>
             <div class="card-body">
-                {{$post->descripcion}}
+                {!!  $post->descripcion !!}
             </div>
             <div class="card-footer">
                 <a href="{{route('posts.show',$post->id)}}" class="btn btn-primary">Ver detalles  <i class="fas fa-clipboard-list"></i></a>

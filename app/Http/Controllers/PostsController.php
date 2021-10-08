@@ -16,7 +16,7 @@ class PostsController extends Controller{
         $this->categoriaPostService = resolve(CategoriaPostService::class);
         $this->middleware('auth')->only(['postularUserToPost','store','create']);
     }
-    
+
     public function index(){
         $posts = $this->postsService->getAll();
         return view('publicaciones.index',compact('posts'));
@@ -24,12 +24,12 @@ class PostsController extends Controller{
 
     public function create(){
         $categorias = $this->categoriaPostService->getAll();
-        return view('publicaciones.create',compact('categorias')); 
+        return view('publicaciones.create',compact('categorias'));
     }
 
     public function store(Request $request){
         $request->validate([
-            "categoria_id" => "required|exists:categorias,id",
+            "categoria_id" => "required|exists:categoria_posts,id",
             "titulo" => "required|string|min:8|max:255",
             "descripcion" => "required|string|min:8|max:65535",
             "beneficio" => "string|max:65535",

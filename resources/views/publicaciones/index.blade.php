@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('content')
     @foreach($posts as $post)
-        <div class="card">
+        <div class="card mt-2">
             <div class="card-header">
                 <div class="float-left">
                     <img src="{{$post->user->icon ?? "https://ui-avatars.com/api/?size=32&name={$post->user->name}&rounded=true"}}" class="img rounded">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                {{$post->descripcion}}
+                {!! $post->descripcion !!}
             </div>
             <div class="card-footer">
                 <a href="{{route('posts.show',$post->id)}}" class="btn btn-primary">Ver detalles  <i class="fas fa-clipboard-list"></i></a>

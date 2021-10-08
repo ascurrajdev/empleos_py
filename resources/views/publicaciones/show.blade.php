@@ -16,11 +16,11 @@
         <div class="card-body">
             <p class="text-uppercase">{{$post->titulo}}</p>
             <p class="h5">Descripcion:</p>
-            <p class="font-weight-light">{{$post->descripcion}}</p>
+            <p class="font-weight-light">{!! $post->descripcion !!}</p>
             <p class="h5">Requisitos:</p>
-            <p class="font-italic">{{$post->requisitos->requisito}}</p>
+            <p>{{$post->requisitos->requisito}}</p>
             <p class="h5">Beneficios:</p>
-            <p class="font-italic">{{$post->beneficios->beneficio}}</p>
+            <p>{{$post->beneficios->beneficio}}</p>
         </div>
         <div class="card-footer">
             @if($post->postulado || !auth()->check())

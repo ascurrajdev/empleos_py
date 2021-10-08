@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 @section('content')
+    @if($postulaciones->count() < 1)
+        <x-adminlte-alert theme="info" class="mt-3" title="Info">
+            Usted aun no se ha postulado a una publicacion.
+        </x-adminlte-alert>
+    @endif
     @foreach($postulaciones as $post)
         <div class="card">
             <div class="card-header">

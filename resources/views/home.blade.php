@@ -1,18 +1,14 @@
 @extends('adminlte::page')
 @section('title','Dashboard')
 @section('content')
-<div class="row">
+<div class="row mt-2">
     <div class="col-lg-4">
-        <x-adminlte-small-box title="424" text="Mis Publicaciones" icon="far fa-fw fa-paper-plane"
-            theme="primary" url="#" url-text="View details"/>
+        <x-adminlte-small-box title="{{$user->publicaciones_count}}" text="Mis Publicaciones" icon="far fa-newspaper"
+            theme="primary" url="{{route('users.posts.index')}}" url-text="Ver detalles"/>
     </div>
     <div class="col-lg-4">
-        <x-adminlte-small-box title="424" text="Mis Postulaciones" icon="far fa-fw fa-paper-plane"
-            theme="purple" url="#" url-text="View details"/>
-    </div>
-    <div class="col-lg-4">
-        <x-adminlte-small-box title="424" text="Mis Postulaciones" icon="far fa-fw fa-paper-plane"
-            theme="purple" url="#" url-text="View details"/>
+        <x-adminlte-small-box title="{{$user->postulaciones_count}}" text="Mis Postulaciones" icon="far fa-fw fa-paper-plane"
+            theme="purple" url="{{route('users.postulaciones.index')}}" url-text="Ver detalles"/>
     </div>
 </div>
 @endsection
