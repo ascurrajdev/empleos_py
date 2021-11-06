@@ -1,8 +1,9 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Publicaciones;
 
 use Validator;
 use App\Models\Post;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Services\{PostsService,CategoriaPostService};
@@ -51,7 +52,7 @@ class PostsController extends Controller{
 
     public function show(Post $post){
         $post->load(['user','beneficios','requisitos','categoria']);
-        $post->withCount(['postulaciones as postulado'=>function(Builder $query){
+        $post->loadCount(['postulaciones','postulaciones as postulado'=>function(Builder $query){
             $query->where('user_id','=',auth()->id());
         }]);
         return view("publicaciones.show",compact('post'));
@@ -62,7 +63,7 @@ class PostsController extends Controller{
             abort(404);
         }
         $this->postsService->postular([
-            "post_id" => $post,
+            "post_id" => $post->id,
             "user_id" => auth()->id()
         ]);
         return redirect()->route('posts.show',$post)->with([

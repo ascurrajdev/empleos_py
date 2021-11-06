@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\Publicaciones\PostsController;
+use App\Http\Controllers\Publicaciones\PostulacionesController;
 use App\Http\Controllers\Cuenta\CuentaController;
 use App\Http\Controllers\Cuenta\PostulacionesCuentaController;
 use App\Http\Controllers\Cuenta\PostsCuentaController;
@@ -29,6 +30,9 @@ Route::prefix('publicaciones')->name('posts.')->group(function(){
     Route::get('create',[PostsController::class,'create'])->name('create');
     Route::get('{post}',[PostsController::class,'show'])->name('show');
     Route::post('{post}/postular',[PostsController::class,'postularUserToPost'])->name('postular');
+    Route::prefix("{post}/postulaciones")->name("postulaciones.")->group(function(){
+        Route::get("",[PostulacionesController::class,"index"])->name("index");
+    });
 });
 Route::prefix('cuenta')->middleware('auth')->name('users.')->group(function(){
     Route::prefix('publicaciones')->name('posts.')->group(function(){

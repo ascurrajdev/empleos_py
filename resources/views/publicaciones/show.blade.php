@@ -23,13 +23,16 @@
             <p>{{$post->beneficios->beneficio}}</p>
         </div>
         <div class="card-footer">
-            @if($post->postulado || !auth()->check())
+            @if(empty($post->postulado) && $post->user->id != auth()->id())
                 <form action="{{route('posts.postular',$post->id)}}" class="float-left mr-3" method="POST">
                     @csrf
                     <button class="btn btn-success">Postular <i class="fas fa-user-check"></i></button>
                 </form>
             @endif
-            <a href="{{route('posts.index')}}" class="float-left btn btn-info">Volver <i class="fas fa-undo"></i></a>
+            @if($post->user_id == auth()->id())
+                <a href="" class="btn float-left btn-primary mr-3">Candidatos Postulados <span class="badge badge-light">{{$post->postulaciones_count}}</span></a>
+            @endif
+            <a href="{{route('posts.index')}}" class="float-left btn btn-secondary">Volver <i class="fas fa-undo"></i></a>
         </div>
     </div>
 @endsection

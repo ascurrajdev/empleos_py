@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="card-body">
-                {{$post->descripcion}}
+                {!!$post->descripcion!!}
             </div>
             <div class="card-footer">
                 <a href="{{route('posts.show',$post->id)}}" class="btn btn-primary">Ver detalles  <i class="fas fa-clipboard-list"></i></a>

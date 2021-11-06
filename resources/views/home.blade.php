@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title','Dashboard')
 @section('content')
-<div class="row mt-2">
+<div class="row pt-2">
     <div class="col-lg-4">
         <x-adminlte-small-box title="{{$user->publicaciones_count}}" text="Mis Publicaciones" icon="far fa-newspaper"
             theme="primary" url="{{route('users.posts.index')}}" url-text="Ver detalles"/>
